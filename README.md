@@ -26,6 +26,28 @@ import * as fs from 'fs';
 - error - 在接收和写入过程中发生错误时触发。
 - finish - 所有数据已被写入到底层系统时触发。
 ### Readable - 可读流
+- readable：在数据块可以从流中读取的时候发出
+```
+aboutReadable.on('readable', () => {
+    let data;
+    while(null !== (data = stream.read())) {
+        console.log('received:', data.toString())
+    }
+})
+```
+- data：有数据可读时发出
+- end：当数据被读完时发出
+- close：当底层的资源，如文件，已关闭时发出
+- error：当在接收数据中出现错误时发出
 - pause: 暂停
 - resume: 重新恢复流动
-- read
+```
+stream.on('data', (chunk) => {
+    stream.pause();
+    console.log('New chunk of data:', chunk);
+});
+
+setTimeout(function() {
+    stream.resume();
+}, 1000)
+```
