@@ -9,3 +9,8 @@ import * as fs from 'fs';
 - on
 - emit
 - removeListener
+
+## Buffer
+> const one = new Buffer(3);
+> const two = Buffer.alloc(5, 1);
+> const three = Buffer.from([1, 2, 3]);
