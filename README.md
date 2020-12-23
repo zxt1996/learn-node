@@ -51,3 +51,9 @@ setTimeout(function() {
     stream.resume();
 }, 1000)
 ```
+### Writable -> 可写流
+```
+const writableStream = fs.createWriteStream('./temp/write.txt');
+writableStream.write('\n');
+writableStream.end('end');
+```
