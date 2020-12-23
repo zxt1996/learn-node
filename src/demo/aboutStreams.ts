@@ -67,4 +67,20 @@ export default function aboutStream() {
             console.log('received:', data.toString())
         }
     })
+
+    // async iterator
+    async function logChunks(readable: fs.ReadStream) {
+        for await (const chunk of readable) {
+            console.log("async chunk:",chunk);
+        }
+    }
+
+    const readable = fs.createReadStream(
+        './file.txt',
+        {
+            encoding: 'utf8'
+        }
+    );
+
+    logChunks(readable);
 }
