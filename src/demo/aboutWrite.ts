@@ -35,8 +35,8 @@ export default function aboutWrite() {
 
     readableStream.setEncoding('utf8');
 
-    readableStream.on('data', async (chunk) => {
-        await writableStream.write(chunk);
+    readableStream.on('data',(chunk) => {
+        writableStream.write(chunk);
         writableStream.write('\n');
         writableStream.end('end');
         // Writing more now is not allowed!
