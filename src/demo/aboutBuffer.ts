@@ -37,7 +37,7 @@ export default function aboutBuffer() {
 
     console.log(result);
 
-    readFile('./file.txt')
+    readFile('./temp/file.txt')
         .then((content) => {
             console.log(content instanceof Buffer);  //true
             console.log(content.toString());

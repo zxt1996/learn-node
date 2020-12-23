@@ -7,7 +7,7 @@ import { Readable } from 'stream';
 
 export default function aboutStream() {
     const stream = fs.createReadStream(
-        './file.txt',
+        './temp/file.txt',
         {
             encoding: 'utf-8'
         }
@@ -76,7 +76,7 @@ export default function aboutStream() {
     }
 
     const readable = fs.createReadStream(
-        './file.txt',
+        './temp/file.txt',
         {
             encoding: 'utf8'
         }

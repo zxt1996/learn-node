@@ -4,6 +4,7 @@ import aboutEvent from './demo/aboutEventEmitter';
 import { eventClass } from './demo/classEventEmitter';
 import aboutBuffer from './demo/aboutBuffer';
 import aboutStream from './demo/aboutStreams';
+import aboutWrite from './demo/aboutWrite';
 
 export default function test() {
     // The rest of the process.argv elements are any additional command line arguments.
@@ -47,4 +48,5 @@ export default function test() {
 
     aboutBuffer();
     aboutStream();
+    aboutWrite();
 }
