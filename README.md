@@ -57,3 +57,10 @@ const writableStream = fs.createWriteStream('./temp/write.txt');
 writableStream.write('\n');
 writableStream.end('end');
 ```
+
+### pipe -> 管道
+```
+const otherRead = fs.createReadStream('./temp/log.txt');
+otherRead.pipe(zlib.createGzip())
+    .pipe(fs.createWriteStream('./temp/log.text.gz'));
+```
