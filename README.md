@@ -64,3 +64,4 @@ const otherRead = fs.createReadStream('./temp/log.txt');
 otherRead.pipe(zlib.createGzip())
     .pipe(fs.createWriteStream('./temp/log.text.gz'));
 ```
+

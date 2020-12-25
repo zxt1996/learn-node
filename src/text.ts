@@ -6,6 +6,7 @@ import aboutBuffer from './demo/aboutBuffer';
 import aboutStream from './demo/aboutStreams';
 import aboutWrite from './demo/aboutWrite';
 import aboutPipe from './demo/aboutPipe';
+import testHTTP from './demo/aboutHTTP';
 
 export default function test() {
     // The rest of the process.argv elements are any additional command line arguments.
@@ -32,23 +33,24 @@ export default function test() {
             }
         }
     } else {
-        console.log('command missing');
-        aboutEvent();
+        // console.log('command missing');
+        // aboutEvent();
         
-        eventClass.on('event', function() {
-            console.log(this.counter);
-        })
+        // eventClass.on('event', function() {
+        //     console.log(this.counter);
+        // })
 
-        eventClass.on('hello', (data) => {
-            console.log(data);
-        })
+        // eventClass.on('hello', (data) => {
+        //     console.log(data);
+        // })
 
-        eventClass.emit('event');
-        eventClass.emit('hello', 1)
+        // eventClass.emit('event');
+        // eventClass.emit('hello', 1)
     }
 
     // aboutBuffer();
     // aboutStream();
     // aboutWrite();
-    aboutPipe();
+    // aboutPipe();
+    testHTTP();
 }
