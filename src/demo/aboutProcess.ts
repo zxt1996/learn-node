@@ -1,4 +1,4 @@
-import { exec, execFile, spawn } from 'child_process';
+import { exec, execFile, spawn, fork } from 'child_process';
 
 // exec是对execFile的封装，execFile又是对spawn的封装
 
@@ -48,19 +48,29 @@ import { exec, execFile, spawn } from 'child_process';
 // With a stream, the data is processed and transferred in small chunks. 
 // Therefore, you can process a large amount of data without using too much memory at any one time.
 
-const child = spawn('node', ['-v']);
-child.stdout.on('data', (data) => {
-  console.log(`输出：${data}`);
-})
-child.stderr.on('data', (data) => {
-  console.log(`错误输出:${data}`);
-})
-child.on('error', (err) => {
-  console.error(err);
-})
-child.on('close', (code) => {
-  console.log(`结束：${code}`)
-})
+// const child = spawn('node', ['-v']);
+// child.stdout.on('data', (data) => {
+//   console.log(`输出：${data}`);
+// })
+// child.stderr.on('data', (data) => {
+//   console.log(`错误输出:${data}`);
+// })
+// child.on('error', (err) => {
+//   console.error(err);
+// })
+// child.on('close', (code) => {
+//   console.log(`结束：${code}`)
+// })
 
-// The main benefit of using fork() to create a Node.js process over spawn() or exec() is 
-// that fork() enables communication between the parent and the child process.
+// The fork function is a variation of the spawn function for spawning node processes. 
+// The biggest difference between spawn and fork is that 
+// a communication channel is established to the child process when using fork, 
+// so we can use the send function on the forked process along 
+// with the global process object itself to exchange messages between the parent and forked processes.
+const forked = fork('child.ts');
+forked.on('message', (msg) => {
+  console.log(`消息：${msg}`);
+})
+forked.send({
+  hello: 'jo'
+})
