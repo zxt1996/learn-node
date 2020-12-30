@@ -65,3 +65,9 @@ otherRead.pipe(zlib.createGzip())
     .pipe(fs.createWriteStream('./temp/log.text.gz'));
 ```
 
+### child_process  ->> 子进程
+- spawn
+- exec
+- execFile
+- fork
+
