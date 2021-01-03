@@ -71,3 +71,7 @@ otherRead.pipe(zlib.createGzip())
 - execFile
 - fork
 
+### cluster ->> 集群
+- cluster.fork():创建 a new process
+- cluster.on("online", function(worker) {})
+- cluster.on("exit", (worker, code, signal) => {})
