@@ -75,3 +75,8 @@ otherRead.pipe(zlib.createGzip())
 - cluster.fork():创建 a new process
 - cluster.on("online", function(worker) {})
 - cluster.on("exit", (worker, code, signal) => {})
+
+### worker_threads ->> 多线程
+- Worker
+- parentPort: used the  parentPort to communicate our worker thread with the main thread
+- workerData: 创建 worker 线程的初始化数据
