@@ -79,4 +79,10 @@ otherRead.pipe(zlib.createGzip())
 ### worker_threads ->> 多线程
 - Worker
 - parentPort: used the  parentPort to communicate our worker thread with the main thread
-- workerData: 创建 worker 线程的初始化数据
+- workerData: 创建 worker 线程的初始化数据  
+
+![](img/MessageChannel.png)  
+
+> A Message Channel is a simple communication channel. It has two ends, which are called ‘ports’. In JavaScript/NodeJS terminology, two ends of a Message Channel are just called ‘port1’ and ‘port2’.
+
+- MessageChannel：port1和port2之间能够进行数据通信
