@@ -86,3 +86,17 @@ otherRead.pipe(zlib.createGzip())
 > A Message Channel is a simple communication channel. It has two ends, which are called ‘ports’. In JavaScript/NodeJS terminology, two ends of a Message Channel are just called ‘port1’ and ‘port2’.
 
 - MessageChannel：port1和port2之间能够进行数据通信
+
+### Single thread vs child process vs worker threads vs cluster in nodejs
+#### child processes
+> The child_process module provides the ability to spawn new processes which has their own memory. The communication between these processes is established through IPC (inter-process communication) provided by the operating system.  
+
+- Only parent to child process communication is possible and there is no child to child communication.
+- Separate memory is allocated for each child process which means that there is a time and resource overhead.
+
+#### Worker threads
+- worker threads share memory and communication between threads is possible.
+- Essentially the difference between worker threads and child processes is same as the difference between a thread(线程) and a process(进程).
+
+#### Cluster
+> It is built on top of the child_process module. In an Http server, the cluster module uses child_process.fork() to automatically fork processes and sets up a master-slave architecture(主从结构) where the parent process distributes the incoming request to the child processes in a round-robin fashion(循环的方式). Ideally, the number of processes forked should be equal to the number of cpu cores your machine has.
